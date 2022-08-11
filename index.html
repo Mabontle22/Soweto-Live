@@ -1,293 +1,33 @@
 <!DOCTYPE html>
+<!--
+  Girly by FreeHTML5.co
+  Twitter: https://twitter.com/fh5co
+  Facebook: https://fb.com/fh5co
+  URL: https://freehtml5.co
+-->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
-    <title> Soweto Live </title>
-<link rel="stylesheet" href="css/all.min.css">
-
-
-<style>
-*
-{
-    margin: 0;
-    padding: 0;
-}
-
-:root
-{
-    --mainWhite: #f2f3f7;
-    --buttonWhite: -2px -2px 5px rgba(255,255,255,1),
-                   3px 3px 5px rgba(0,0,0,0.07);
-
-    --buttonWhiteActive: inset -2px -2px 5px rgba(255,255,255,1),
-                  inset 3px 3px 5px rgba(0,0,0,0.07);             
-
-    --iconWhiteVer:#c2c2c2;
-
-    --mainDark:#222;
-
-    --buttonDark:inset -2px -2px 5px rgba(0,0,0,0.5),
-                  inset 3px 3px 5px rgba(255,255,255,0.07);
-
-    --buttonDarkActive:-2px -2px 5px rgba(0,0,0,0.5),
-                   3px 3px 5px rgba(255,255,255,0.07);
-
-    --iconDarkVer:#3e3e3e;
-
-    --iconDarkVerActive: 0 0 10px rgb(231,238,243),
-                         0 0 10px rgb(255,255,255);
-
-  --iconDarkLine: 0 0 10px rgba(235,235,235,0.5),
-                  0 0 20px rgba(235,235,235,0.5),
-                  0 0 30px rgba(235,235,235,0.5),
-                inset  0 0 10px rgba(235,235,235,0.5),
-     
-
-
-}
-
-
-body
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column-reverse;
-    min-height: 100vh;
-    transition: 0.5s;
-}
-body.neumorphism
-{
-    background: var(--mainWhite);
-}
-
-body.neumorphism .switch
-{
-    background: var(--mainWhite);
-    box-shadow: var(--buttonWhite);
-
-}
-body.neumorphism .switch input[type="checkbox"] ~ .icon-box
-{
-    background: var(--mainWhite);
-    box-shadow: var(--buttonWhite);
-}
-body.neumorphism .switch input[type="checkbox"] ~ .icon-box i
-{
-    color: var(--iconWhiteVer);
-}
-body.neumorphism .switch input[type="checkbox"]:checked ~ .icon-box
-{
-    box-shadow: var(--buttonWhiteActive);
-
-}
-body.dark
-{
-    background: var(--mainDark);
-}
-body.dark .switch
-{
-    background: var(--mainDark);
-    box-shadow: var(--buttonDark);
-
-}
-body.dark .switch input[type="checkbox"] ~ .icon-box
-{
-    box-shadow: var(--buttonDark);
-    background: var(--mainDark);
-}
-body.dark .switch input[type="checkbox"] ~ .icon-box i
-{
-    color: var(--iconDarkVer);
-
-}
-body.dark .switch input[type="checkbox"]:checked ~ .icon-box
-{
-    box-shadow: var(--buttonDarkActive);
-}
-body.dark .switch input[type="checkbox"]:checked ~ .icon-box i
-{
-    text-shadow: var(--iconDarkVerActive);
-    color: #fff;
-}
-
-.switch
-{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    padding: 20px;
-}
-.switch_box
-{
-    position: relative;
-    list-style: none;
-    text-align: center;
-    margin: 15px;
-}
-.switch_box label
-{
-    position: relative;
-}
-.switch_box label input[type="checkbox"]
-{
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-.switch_box label input[type="checkbox"] ~ .icon-box
-{
-    width: 60px;
-    height: 60px;
-    display: flex;
-   align-items: center;
-   justify-content: center;
-   border-radius: 4px;
-}
-
-.switch_box label input[type="checkbox"] ~.icon-box i
-{
-    font-size: 20px;
-}
-
-.switch_box label input[type="checkbox"]:checked ~.icon-box i
-{
-    transform: scale(0.95);
-}
-
-.on-off
-{
-    position: relative;
-    width: 100px;
-    height: 55px;
-    margin: 15px;
-    font: 600 15px arial;
-}
-
-.on-off input
-{
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider
-{
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 100px;
-    background: var(--mainWhite);
-    box-shadow: var(--buttonWhiteActive);
-    transition: 0.4s ease ease;
-}
-.slider:before
-{
-    position: absolute;
-    content:"Bk";
-    text-align: center;
-    line-height: 45px;
-    width: 45px;
-    height: 45px;
-    left: 10px;
-    bottom: 5px;
-    background: var(--mainWhite);
-    box-shadow: var(--buttonWhite);
-    border-radius: 100px;
-    transition: 0.4s;
-}
-input:checked + .slider
-{
-    background: var(--mainDark);
-    box-shadow: inset -2px -2px 6px rgba(255,255,255,0.05),
-                inset 2px 2px 6px rgba(0,0,0,0.5);
-        transition:0.4s;        
-}
-
-input:checked + .slider:before
-{
-    content: "WH";
-    transform: translateX(36px);
-    background: var(--mainDark);
-    box-shadow: -2px -2px 6px rgba(255,255,255,0.05),
-             2px 2px 6px rgba(0,0,0,0.5);
-    color: var(--mainWhite);
-    width: 45px;
-    height: 45px;    
-    left: 10px;
-    bottom: 5px;
-    transition: 0.4s;     
-}
-
-
-
-
-
-
-
-
-</style>
-
-
-<style>
-
-    * {
-        box-sizing: border-box;
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>Home | King Slih</title>
+  <style>
+     .password {
+        margin-bottom: 30px;
+        border-radius: 25px;
+        box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+        outline: #555;
     }
-    body {
-        margin: 0;
-        height: 100vh;
-        width: 100vw;
-        overflow: visible;
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #555;
-        background: #ecf0f3;
+
+     .password::active {
+      outline: #000;
+     }
+    .password ::placeholder {
+        color: #999;
     }
-    .login-div {
-        width: 480px;
-        height: auto;
-        padding: 20px 20px 20px 20px;
-        border-radius: 40px;
-        background: #ecf0f3;
-        box-shadow: 10px 10px 20px #cbced1, -10px -10px 20px #ffffff;
-    }
-    .logo {
-        background: url("AC.png");
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        margin: 0 auto;
-        box-shadow: 0 0 2px #5f5f5f, 0 0 5px #ecf0f3, 8px 8px 15px #a7aaaf, -8px -8px 15px #ffffff;
-        background-size: cover;
-    }
-    .title {
-        text-align: center;
-        font-size: 28px;
-        padding-top: 24px;
-        letter-spacing: 0.5px;
-    }
-    .sub-title {
-        text-align: center;
-        font-size: 15px;
-        padding-top: 7px;
-        letter-spacing: 3px;
-    }
-    .fields {
-        width: 100%;
-        padding: 20px 5px 5px 5px;
-    }
+
     .fields input {
         border: none;
         outline: none;
@@ -296,26 +36,13 @@ input:checked + .slider:before
         color: #555;
         padding: 10px 10px 18px 1px;
     }
-    .username,
-    .password {
-        margin-bottom: 30px;
-        border-radius: 25px;
-        box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff
-    }
-    .username ::placeholder,
-    .password ::placeholder {
-        color: #999;
-    }
-    .fields svg {
-        height: 22px;
-        margin: 0 10px -3px 25px;
-    }
+
     .signin-button {
         outline: none;
         border: none;
         cursor: pointer;
         width: 100px;
-        height: 60px;
+        height: 40px;
         border-radius: 20px;
         font-size: 15px;
         font-weight: 600;
@@ -323,7 +50,7 @@ input:checked + .slider:before
         color: #fff;
         text-align: center;
         background: #fc3030;
-        box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+        box-shadow: 2px 2px 6px #b1b1b1, -2px -2px 6px #ffffff;
     }
     .signin-button:hover {
         background: #000;
@@ -331,129 +58,124 @@ input:checked + .slider:before
     .signin-button:active {
         background: #ff843c;
     }
-    .link {
-        padding: 20px;
-        text-align: center;
-    }
-    .link a {
-        text-decoration: none;
-        color: #aaa;
-        font-size: 15px;
-    }
-    
-    </style> 
-
-
-
-
+  </style>
 </head>
-<body class="neumorphism" translate="no">
-  
 
-    <ul class="switch" >
-
-        <li class="switch_box">
-            <label>
-                <input type="checkbox" name="">
-                <div class="icon-box">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-            </label>
-        </li>
-
-        <li class="switch_box">
-            <label>
-                <input type="checkbox" name="">
-                <div class="icon-box">
-                    <i class="fas fa-paper-plane"></i>
-                </div>
-            </label>
-        </li>
-
-        <li class="switch_box">
-            <label>
-                <input type="checkbox" name="">
-                <div class="icon-box">
-                    <i class="fas fa-moon"></i>
-                </div>
-            </label>
-        </li>
-
-        <li class="switch_box">
-            <label>
-                <input type="checkbox" name="">
-                <div class="icon-box">
-                    <i class="fas fa-wifi"></i>
-                </div>
-            </label>
-        </li>
-
-        <li class="switch_box">
-            <label>
-                <input type="checkbox" name="">
-                <div class="icon-box">
-                    <i class="fas fa-volume-up"></i>
-                </div>
-            </label>
-        </li>
-
-        <li class="switch_box">
-            <label>
-                <input type="checkbox" name="">
-                <div class="icon-box">
-                    <i class="fas fa-home"></i>
-                </div>
-            </label>
-        </li>
-
-    </ul>
-
-
-    <div class="link">
-        <a href="#">Forgot password?</a> or <a href="#">Sign Up</a>
+<body>
+  <nav class="navbar navbar-expand-md  fixed-top maine-menu">
+    <div class="container">
+      <button class="navbar-toggler ml-auto" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"> <span class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span> </button>
+      <div id="my-nav" class="collapse navbar-collapse">
+        
+        <ul class="navbar-nav mx-auto">
+          <a href="index.html"><img style="width:200px;" src="assets/img/Soweto Live logo2.png" alt="">
+          </a>
+          <li class="nav-item"> <a class="nav-link" href="#about" tabindex="-1" aria-disabled="true">About</a></li> 
+          <li class="nav-item"> <a class="nav-link" href="pictures.html" tabindex="-1" aria-disabled="true">Pictures</a></li> 
+        </ul>
+      </div>
     </div>
-    <label class="on-off">
-        <input type="checkbox" id="changeColor">
-    <span class="slider round"></span>
-    </label>
+  </nav>
 
-      
-    <div class="login-div">
-        <div class="fields">
-            <form action="#" class="password">
-                <input type="text" class="form-control" placeholder="Type your reference here">
-                <svg fill='#999' class="svg-icon" viewBox="0 0 20 20">
-                    <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
-                </svg>
-                <button type="submit" class="signin-button">Search</button>
-            </form>  
+
+  <div class="container-fluid fh5co-insta-feed activity">
+    
+    <div class="container recent">
+      <div class="row mb-5 pb-5">
+        <div class="col-lg-12">
+          <div class="twit-box">
+            
+            <div class="media mb-3">
+              
+              <div class="media-body">
+                <p></p>
+                <a href="#" class="  justify-content-center">
+                  <form action="#" class=" d-flex  " data-aos="fade-up" data-aos-delay="200">
+                    <input type="text" class="form-control password" placeholder="Type your ref/phone number here">
+                    <button type="submit" class="signin-button">Search</button>
+                  </form>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      
+      </div>
+      
+      <div class="row">
+        <div class="owl-carousel owl-carousel2 owl-theme">
+          <div>
+            <div class="card"> 
+              <a href="#"> <img class="card-img" src="assets/img/recent-img1.jpg" alt="">
+              <div class="card-img-overlay"> 
+                <div class="bottom-text">
+                  <h5 class="card-title">Events</h5>
+                  <p class="card-text">Konka to have a new place</p>
+                </div>
+              </div>
+            </a>
+            </div>
+          </div>
+          <div>
+            <div class="card"> 
+              <a href="#"> <img class="card-img" src="assets/img/recent-img2.jpg" alt="">
+              <div class="card-img-overlay"> 
+                <div class="bottom-text">
+                  <h5 class="card-title">News</h5>
+                  <p class="card-text">Latest News in Soweto</p>
+                </div>
+              </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            <div class="card"> 
+              <a href="#"> <img class="card-img" src="assets/img/recent-img3.jpg" alt="">
+              <div class="card-img-overlay"> 
+                <div class="bottom-text">
+                  <h5 class="card-title">People</h5>
+                  <p class="card-text">People who are doing cool things in Soweto</p>
+                </div>
+              </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            <div class="card"> 
+              <a href="#"> <img class="card-img" src="assets/img/recent-img4.jpg" alt="">
+              <div class="card-img-overlay"> 
+                <div class="bottom-text">
+                  <h5 class="card-title">Business</h5>
+                  <p class="card-text">Woman's month business lunch</p>
+                </div>
+              </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+     
+      <div class="row social-links">
+        <ul class="nav mx-auto">
+          <li class="nav-item"> <a class="nav-link" href="https://www.facebook.com/fh5co"><img src="assets/img/facebook.png" alt=""></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="https://twitter.com/fh5co"><img src="assets/img/twitter.png" alt=""></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#"><img src="assets/img/pinterest.png" alt=""></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#"><img src="assets/img/google-plus.png" alt=""></a> </li>
+        </ul>
+      </div>
+      <p class="text-center d-block"><a href="https://sowetolive.com/about" target="_blank"> &copy; 2022 | Soweto Live</a>  &nbsp;  |  &nbsp; powered by <a href="https://siyapercy.co.za/" target="_blank">Ramphele</a> &nbsp; | &nbsp;  All rights reserved</p>
+    
     </div>
+  </div>
+  </div>
 
-
-<script src="js/jquery.js"></script>
-
-<script id="rendered-js">
-$(function (){
-   $("#changeColor").change(function () {
-      var checked = $(this).prop("checked");
-      $("body").removeClass();
-      if(checked)
-      {
-          $("body").addClass("dark");
-      }
-
-      else
-      {
-          $("body").addClass("neumorphism");
-      }
-
-   });
-
-});
-
-</script>
-
+  <!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+  <script src="assets/js/jquery-3.3.1.slim.min.js"></script> 
+  <script src="assets/js/popper.min.js" ></script> 
+  <script src="assets/js/bootstrap.min.js"></script> 
+  <script src="assets/js/owl.carousel.min.js"></script> 
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
