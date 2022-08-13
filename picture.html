@@ -519,7 +519,7 @@ a {
                     </a>
                     <br><br>
                     <div class="product-btns" style="padding-top: 5px;">
-                      <a href="assets/img/recent-img4.jpg" class="btn-small mr-2" download="assets/img/recent-img4.jpg">save picture</a>
+                      <a href="assets/img/tm-sigma-08.jpg" class="btn-small mr-2" download="Cindy and friends">save picture</a>
                   </div>
                 </form>
               </div>
@@ -548,22 +548,5 @@ a {
   <script src="assets/js/bootstrap.min.js"></script> 
   <script src="assets/js/owl.carousel.min.js"></script> 
   <script src="assets/js/main.js"></script>
-<script> function onStartedDownload(id) {
-  console.log(`Started downloading: ${id}`);
-}
-
-function onFailed(error) {
-  console.log(`Download failed: ${error}`);
-}
-
-var downloadUrl = "https://example.org/image.png";
-
-var downloading = browser.downloads.download({
-  url : downloadUrl,
-  filename : 'my-image-again.png',
-  conflictAction : 'uniquify'
-});
-
-downloading.then(onStartedDownload, onFailed);</script>
 </body>
 </html>
